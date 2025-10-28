@@ -64,7 +64,7 @@ def exercicio_8(data_str):
   except (ValueError, IndexError):
     return "Formato de data inválido. Use dd/mm/aaaa."
   
-# --- Testes! ---
+# --------- Testes ---------
 print("--- Exercício 1 ---")
 frase_ex1 = "Quem parte e reparte fica com a maior parte"
 resultado_ex1 = exercicio_1(frase_ex1, "parte", "parcela")
