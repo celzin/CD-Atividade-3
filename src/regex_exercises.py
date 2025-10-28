@@ -21,7 +21,6 @@ def exercicio_regex_2_1(texto):
   Encontra todas as palavras que terminam com a letra 'o'.
   """
   regex_palavra_o = r"\b\w+o\b"
-  # re.IGNORECASE (ou re.I) garante que pegamos 'o' e 'O'
   return re.findall(regex_palavra_o, texto, re.IGNORECASE)
 
 def exercicio_regex_2_2(texto):
@@ -68,13 +67,7 @@ def exercicio_regex_5_e_6(telefone_str):
   Se válido, retorna (XX) XXXX-XXXX (fixo) ou (XX) XXXXX-XXXX (celular).
   """
   telefone_limpo = re.sub(r"[\(\)\s\-]", "", telefone_str)
-  
-  # Grupo 1 (DDD): (0?\d{2}) -> 019 ou 19
-  # Grupo 2 (Prefixo): (9\d{4}) -> 9xxxx
-  # Grupo 3 (Sufixo): (\d{4}) -> xxxx
   regex_celular = r"^(0?\d{2})(9\d{4})(\d{4})$"
-  
-  # (?!9) -> Lookahead negativo (garante que o prefixo não começa com 9)
   regex_fixo = r"^(0?\d{2})((?!9)\d{4})(\d{4})$"
 
   match_cel = re.match(regex_celular, telefone_limpo)
@@ -82,7 +75,7 @@ def exercicio_regex_5_e_6(telefone_str):
 
   if match_cel:
     partes = match_cel.groups()
-    ddd = partes[0][-2:] # Pega apenas os 2 dígitos do DDD (ex: '019' vira '19')
+    ddd = partes[0][-2:]
     return f"({ddd}) {partes[1]}-{partes[2]}"
   
   elif match_fixo:
@@ -94,47 +87,47 @@ def exercicio_regex_5_e_6(telefone_str):
     return None
   
 # --------- Testes ---------
-print("--- Exercício 1.1 (CPF com pontuação opcional) ---")
+print("- Exercício 1.1 ")
 cpfs_1_1 = ["772.843.809-34", "77284380934", "772.843.80934", "123.456.789-AB"]
 for cpf in cpfs_1_1:
   print(f"Testando '{cpf}': {exercicio_regex_1_1(cpf)}")
 
-print("\n--- Exercício 1.2 (CPF com pontuação variada) ---")
+print("\n- Exercício 1.2 ")
 cpfs_1_2 = ["772.843.809-34", "77284380934", "772 843 809/34", "772.843.809/34", "772 843 809-34"]
 for cpf in cpfs_1_2:
   print(f"Testando '{cpf}': {exercicio_regex_1_2(cpf)}")
 
-print("\n--- Exercício 2.1 (Palavras terminadas em 'o') ---")
+print("\n- Exercício 2.1 ")
 texto_ex_2_1 = "Escreva uma regex capaz de encontrar no texto deste parágrafo todas as palavras."
 print(f"Texto: '{texto_ex_2_1}'")
 print(f"Palavras encontradas: {exercicio_regex_2_1(texto_ex_2_1)}")
 
-print("\n--- Exercício 2.2 (Palavras começam/terminam com vogal) ---")
+print("\n- Exercício 2.2 ")
 texto_ex_2_2 = "Escreva uma regex capaz de encontrar em um texto todas as palavras."
 print(f"Texto: '{texto_ex_2_2}'")
 print(f"Palavras encontradas: {exercicio_regex_2_2(texto_ex_2_2)}")
 
-print("\n--- Exercício 3.1 (Validar Hora HH:MM) ---")
+print("\n- Exercício 3.1 ")
 horas_3_1 = ["14:30", "23:59", "00:00", "23:99", "14:60", "14 30"]
 for h in horas_3_1:
   print(f"Testando '{h}': {exercicio_regex_3_1(h)}")
   
-print("\n--- Exercício 3.2 (Validar Octeto IPv4) ---")
+print("\n- Exercício 3.2 ")
 octetos_3_2 = ["192", "255", "0", "256", "-1", "1.2"]
 for o in octetos_3_2:
   print(f"Testando '{o}': {exercicio_regex_3_2(o)}")
 
-print("\n--- Exercício 3.3 (Validar IP Completo) ---")
+print("\n- Exercício 3.3 ")
 ips_3_3 = ["192.168.1.1", "255.0.0.0", "0.0.0.0", "255.256.0.1", "192.168.1"]
 for ip in ips_3_3:
   print(f"Testando '{ip}': {exercicio_regex_3_3(ip)}")
 
-print("\n--- Exercício 4 (Validar Número Inteiro/Real) ---")
+print("\n- Exercício 4 ")
 nums_4 = ["10", "+5", "-3", "-10.3", "0.80", "2.8033", "10.", ".80", "abc", "+10.a"]
 for n in nums_4:
   print(f"Testando '{n}': {exercicio_regex_4(n)}")
 
-print("\n--- Exercícios 5 e 6 (Validar e Formatar Telefone) ---")
+print("\n- Exercícios 5 e 6 ")
 telefones_teste = [
     "(19) 3123-4567",
     "193123-4567",

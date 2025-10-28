@@ -65,27 +65,27 @@ def exercicio_8(data_str):
     return "Formato de data inválido. Use dd/mm/aaaa."
   
 # --------- Testes ---------
-print("--- Exercício 1 ---")
+print("- Exercício 1 ")
 frase_ex1 = "Quem parte e reparte fica com a maior parte"
 resultado_ex1 = exercicio_1(frase_ex1, "parte", "parcela")
 print(f"Original: {frase_ex1}")
 print(f"Resultado: {resultado_ex1}")
 
-print("\n--- Exercício 2 ---")
+print("\n- Exercício 2 ")
 dna_entrada = "AATCTGCAC"
 print(f"Entrada: {dna_entrada}")
 print(f"Saída: {exercicio_2(dna_entrada)}")
 
-print("\n--- Exercício 3 ---")
+print("\n- Exercício 3 ")
 frase_ex3 = "   Uma   frase   com    vários espaços  "
 print(f"A frase '{frase_ex3}' contém {exercicio_3(frase_ex3)} palavras.")
 
-print("\n--- Exercício 4 ---")
+print("\n- Exercício 4 ")
 frase_ex4 = exercicio_4_ler_frase()
 resultado_ex4 = exercicio_4_substituir(frase_ex4)
 print(f"Resultado: {resultado_ex4}")
 
-print("\n--- Exercício 5 ---")
+print("\n- Exercício 5 ")
 str1 = input("Digite a primeira string (ex: amor): ")
 str2 = input("Digite a segunda string (ex: roma): ")
 if exercicio_5(str1, str2):
@@ -93,17 +93,17 @@ if exercicio_5(str1, str2):
 else:
   print("Não são palíndromos mútuos.")
 
-print("\n--- Exercício 6 ---")
+print("\n- Exercício 6 ")
 nome_ex6 = input("Digite seu nome (ex: Vanessa): ")
 resultado_ex6 = nome_ex6.upper()[::-1]
 print(f"Resultado: {resultado_ex6}")
 
-print("\n--- Exercício 7 ---")
+print("\n- Exercício 7 ")
 nome_ex7 = input("Digite seu nome (ex: Vanessa): ")
 nome_maiusculo_ex7 = nome_ex7.upper()
 for i in range(1, len(nome_maiusculo_ex7) + 1):
   print(nome_maiusculo_ex7[:i])
 
-print("\n--- Exercício 8 ---")
+print("\n- Exercício 8 ")
 data_nascimento = input("Digite sua data de nascimento (dd/mm/aaaa): ")
 print(exercicio_8(data_nascimento))
